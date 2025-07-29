@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab4 Tasks 4 & 5</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Lab 4: Tasks 4 & 5</h1>
+    <!-- Task 4: Dropdown to display student data -->
+    <h3 style="text-align: center;">Student Data</h3>
+    <div style="text-align: center;">
+        <select id="studentDropdown" style="text-align: center;">
+            <option value="">Select a student ID</option>
+        </select>
+    </div>
+    <div id="studentInfo" style="text-align: center;"></div>
+
+    <!-- Task 5: Styled Student List -->
+    <h3 style="text-align: center;">Student List</h3>
+    <div id="studentList" style="text-align: center;"></div>
+
+    <script>
+        
+        const students = [
+            { id: 1, name: "John Doe", grade: "A" },
+            { id: 2, name: "Jane Smith", grade: "B" },
+            { id: 3, name: "Mike Johnson", grade: "C" },
+            { id: 4, name: "Sarah Williams", grade: "A" },
+            { id: 5, name: "David Brown", grade: "B" },
+            { id: 6, name: "Emily Davis", grade: "A" },
+            { id: 7, name: "Robert Wilson", grade: "B" },
+            { id: 8, name: "Jennifer Lee", grade: "A" },
+            { id: 9, name: "Thomas Taylor", grade: "C" },
+            { id: 10, name: "Lisa Martinez", grade: "B" }
+        ];
+
+        // Task 4: Dropdown
+        const dropdown = document.getElementById('studentDropdown');
+        const info = document.getElementById('studentInfo');
+        dropdown.style.textAlign = "center";
+        info.style.textAlign = "center";
+
+        //dropdown student IDs
+        students.forEach(student => {
+            const option = document.createElement('option');
+            option.value = student.id;
+            option.textContent = student.id;
+            dropdown.appendChild(option);
+        });
+
+        // Show Dropdown student info
+        dropdown.addEventListener('change', function() {
+            const student = students.find(s => s.id == this.value);
+            info.innerHTML = student 
+                ? `ID: ${student.id}<br>Name: ${student.name}<br>Grade: ${student.grade}`
+                : "Please select a student";
+        });
+
+        // Task 5: Print student list with even-odd styles
+        const list = document.getElementById('studentList');
+        students.forEach((student, index) => {
+            const p = document.createElement('p');
+            p.textContent = `${student.id}: ${student.name} (Grade: ${student.grade})`;
+            
+            
+            if (index % 2 === 0) {
+                p.style.color = "blue";
+                p.style.fontWeight = "bold";
+            } else {
+                p.style.color = "red";
+                p.style.fontStyle = "italic";
+            }
+            
+            list.appendChild(p);
+        });
+    </script>
+</body>
+</html>
