@@ -1,4 +1,4 @@
-// ===== TASK 1: Using document object methods =====
+// ===== TASK 1
 
 // 1a
 var images1 = document.images; // Method 1: document.images collection
@@ -15,7 +15,7 @@ var secondTableRows = tables[1].getElementsByTagName("tr");
 // 1d
 var fontBlueElements = document.getElementsByClassName("fontBlue");
 
-// ===== TASK 2: DOM Manipulation =====
+// ===== TASK 2
 
 // 2a
 var secondTableAnchors = tables[1].getElementsByTagName("a");
@@ -48,14 +48,14 @@ if (exampleDiv) {
     exampleDiv.style.backgroundColor = "pink";
 }
 
-// ===== TASK 3: Slideshow =====
-// Create the slideshow elements
+// ===== TASK 3
+
 var slideshowDiv = document.createElement("div");
 var slideshowImg = document.createElement("img");
 slideshowImg.src = "1.png";
 slideshowImg.width = 250;
 slideshowImg.height = 250;
-slideshowImg.id = "slideshow-img"; // Add unique ID
+slideshowImg.id = "slideshow-img";
 
 var lineBreak = document.createElement("br");
 var prevBtn = document.createElement("input");
@@ -68,14 +68,14 @@ nextBtn.type = "button";
 nextBtn.value = "⏭️";
 nextBtn.id = "next";
 
-// Append elements
+
 slideshowDiv.appendChild(slideshowImg);
 slideshowDiv.appendChild(lineBreak);
 slideshowDiv.appendChild(prevBtn);
 slideshowDiv.appendChild(nextBtn);
 document.body.appendChild(slideshowDiv);
 
-// Slideshow functionality - now only affects our specific image
+// Slideshow
 var counter = 1;
 
 prev.onclick = function() {
